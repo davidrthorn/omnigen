@@ -41,7 +41,7 @@ def navigate(start_coordinates, start_heading, instructions):
             heading = rotate(heading, -1)
 
         else:
-            raise ValueError("encountered unknown instruction '{}'. Instructions must be 'F', 'R' or 'L'".format(instruction))
+            raise ValueError("encountered unknown instruction '{}'. Instructions must be 'F', 'R' or 'L'.".format(instruction))
 
     return coordinates
 
