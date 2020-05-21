@@ -8,3 +8,6 @@ Instructions must be newline-separated lists of
 letters, where 'F' is forward, 'R' is rotate clockwise 90deg,
 'L' is rotate counter-clockwise 90deg (see included examples).
 Instruction files must not include any blank lines between instructions.
+
+I chose to print the fact that the robot travelled in a circle, rather than returning True
+from a function, but this would be trivial to implement if needed.

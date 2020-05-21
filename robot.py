@@ -82,6 +82,7 @@ if __name__ == '__main__':
             ground_covered = ground_covered + 1
         if latest == supplied_coordinates and ground_covered > 0:
             print("travelled in a circle and terminated journey")
+            print("ground covered:     ", ground_covered)
             exit(0)
 
     print("final position:     ", latest)
