@@ -41,7 +41,7 @@ def navigate(start_coordinates, start_heading, instructions):
             heading = rotate(heading, -1)
 
         else:
-            raise ValueError("encountered unknown instruction '{}'. Instructions must be 'F', 'R' or 'L'.".format(instruction))
+            raise ValueError("Encountered unknown instruction '{}'. Instructions must be 'F', 'R' or 'L'.".format(instruction))
 
     return coordinates
 
@@ -58,7 +58,7 @@ def get_instructions(filename):
 
 def parse_arguments(args):
     if len(args) < 5:
-        raise ValueError("require 4 arguments: "
+        raise ValueError("Require 4 arguments: "
                          "[initial x coordinate] "
                          "[initial y coordinate] "
                          "[initial heading] "
@@ -81,10 +81,10 @@ if __name__ == '__main__':
     for latest in generate_latest_coordinates:
         ground_covered = ground_covered + 1
         if latest == supplied_coordinates:
-            print("travelled in a circle and terminated journey")
-            print("ground covered:     ", ground_covered)
+            print("Travelled in a circle and terminated journey")
+            print("Ground covered:     ", ground_covered)
             exit(0)
 
-    print("final position:     ", latest)
-    print("distance travelled: ", '%.3f' % distance_between(supplied_coordinates, latest))
-    print("ground covered:     ", ground_covered)
+    print("Final position:     ", latest)
+    print("Distance travelled: ", '%.3f' % distance_between(supplied_coordinates, latest))
+    print("Ground covered:     ", ground_covered)
