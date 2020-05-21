@@ -1,0 +1,54 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="41">
+            <item index="0" class="java.lang.String" itemvalue="oauth2client" />
+            <item index="1" class="java.lang.String" itemvalue="rsa" />
+            <item index="2" class="java.lang.String" itemvalue="validate-email" />
+            <item index="3" class="java.lang.String" itemvalue="python-daemon" />
+            <item index="4" class="java.lang.String" itemvalue="python-dateutil" />
+            <item index="5" class="java.lang.String" itemvalue="smtpapi" />
+            <item index="6" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="7" class="java.lang.String" itemvalue="httplib2" />
+            <item index="8" class="java.lang.String" itemvalue="luigi" />
+            <item index="9" class="java.lang.String" itemvalue="numpy" />
+            <item index="10" class="java.lang.String" itemvalue="pyasn1" />
+            <item index="11" class="java.lang.String" itemvalue="requests" />
+            <item index="12" class="java.lang.String" itemvalue="DateTime" />
+            <item index="13" class="java.lang.String" itemvalue="pyasn1-modules" />
+            <item index="14" class="java.lang.String" itemvalue="apiclient" />
+            <item index="15" class="java.lang.String" itemvalue="certifi" />
+            <item index="16" class="java.lang.String" itemvalue="google-auth-httplib2" />
+            <item index="17" class="java.lang.String" itemvalue="stripe" />
+            <item index="18" class="java.lang.String" itemvalue="docutils" />
+            <item index="19" class="java.lang.String" itemvalue="urllib3" />
+            <item index="20" class="java.lang.String" itemvalue="uritemplate" />
+            <item index="21" class="java.lang.String" itemvalue="six" />
+            <item index="22" class="java.lang.String" itemvalue="tornado" />
+            <item index="23" class="java.lang.String" itemvalue="botocore" />
+            <item index="24" class="java.lang.String" itemvalue="boto" />
+            <item index="25" class="java.lang.String" itemvalue="zope.interface" />
+            <item index="26" class="java.lang.String" itemvalue="sendgrid" />
+            <item index="27" class="java.lang.String" itemvalue="chardet" />
+            <item index="28" class="java.lang.String" itemvalue="jmespath" />
+            <item index="29" class="java.lang.String" itemvalue="pandas" />
+            <item index="30" class="java.lang.String" itemvalue="lockfile" />
+            <item index="31" class="java.lang.String" itemvalue="boto3" />
+            <item index="32" class="java.lang.String" itemvalue="s3transfer" />
+            <item index="33" class="java.lang.String" itemvalue="dropbox" />
+            <item index="34" class="java.lang.String" itemvalue="cachetools" />
+            <item index="35" class="java.lang.String" itemvalue="google-api-python-client" />
+            <item index="36" class="java.lang.String" itemvalue="pytz" />
+            <item index="37" class="java.lang.String" itemvalue="google-auth" />
+            <item index="38" class="java.lang.String" itemvalue="idna" />
+            <item index="39" class="java.lang.String" itemvalue="PyDrive" />
+            <item index="40" class="java.lang.String" itemvalue="PyYAML" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
