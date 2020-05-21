@@ -75,7 +75,9 @@ if __name__ == '__main__':
 
     generate_latest_coordinates = navigate(supplied_coordinates, supplied_heading, instruction_generator)
 
+    latest = supplied_coordinates
     ground_covered = 0  # just for fun
+
     for latest in generate_latest_coordinates:
         ground_covered = ground_covered + 1
         if latest == supplied_coordinates and ground_covered > 0:
