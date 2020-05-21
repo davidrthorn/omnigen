@@ -80,7 +80,7 @@ if __name__ == '__main__':
 
     for latest in generate_latest_coordinates:
         ground_covered = ground_covered + 1
-        if latest == supplied_coordinates and ground_covered > 0:
+        if latest == supplied_coordinates:
             print("travelled in a circle and terminated journey")
             print("ground covered:     ", ground_covered)
             exit(0)
