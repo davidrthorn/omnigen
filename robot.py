@@ -75,8 +75,17 @@ if __name__ == '__main__':
 
     generate_latest_coordinates = navigate(supplied_coordinates, supplied_heading, instruction_generator)
 
+    previous = supplied_coordinates
+    latest = supplied_coordinates
+    ground_covered = 0  # just for fun
+
     for latest in generate_latest_coordinates:
-        if latest == supplied_coordinates:
+        if latest != previous:
+            ground_covered = ground_covered + 1
+        if latest == supplied_coordinates and ground_covered > 0:
             print("travelled in a circle and terminated journey")
             exit(0)
+
+    print("final position:     ", latest)
     print("distance travelled: ", '%.3f' % distance_between(supplied_coordinates, latest))
+    print("ground covered:     ", ground_covered)
