@@ -9,7 +9,7 @@ def move(coordinates, heading):
         (x + 1, y),
         (x, y - 1),
         (x - 1, y),
-    ][heading]
+    ][heading]  # readable, but not optimised. If/else would be faster if speed is a concern
 
 
 # direction is 1 for clockwise, -1 for counter-clockwise
@@ -34,9 +34,11 @@ def navigate(start_coordinates, start_heading, instructions):
             coordinates = move(coordinates, heading)
             yield coordinates
 
-        elif instruction in ['R', 'L']:
-            direction = 1 if instruction == 'R' else -1
-            heading = rotate(heading, direction)
+        elif instruction == 'R':
+            heading = rotate(heading, 1)
+
+        elif instruction == 'L':
+            heading = rotate(heading, -1)
 
         else:
             raise Exception('unknown instruction: ', instruction)
