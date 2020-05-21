@@ -1,4 +1,6 @@
 import math
+import sys
+
 
 def move(coordinates, heading):
     x, y = coordinates
@@ -22,25 +24,20 @@ def handle_unknown(instruction):
 def distance_between(coordinates_a, coordinates_b):
     a = abs(coordinates_a[0] - coordinates_b[0])
     b = abs(coordinates_a[1] - coordinates_b[1])
-    return math.sqrt(a ** 2 - b ** 2)
+
+    print(a, b)
+    return math.sqrt(a ** 2 + b ** 2)
 
 
-test_instructions = [
-    'R', 'F', 'L', 'F'
-]
+def navigate(start_coordinates, start_heading, instructions):
 
-
-def navigate(start_coordinates, start_heading, instructions=[]):
-    start_coordinates = (0, 0)
-    start_heading = 0  # North=0, East=1, South=2, West=3
-
-    coordinates = start_coordinates  # will this mutate?
+    coordinates = start_coordinates
     heading = start_heading
 
-    for instruction in test_instructions:
+    for instruction in instructions:
         if instruction == 'F':
             coordinates = move(coordinates, heading)
-        if instruction in ['R', 'L']:
+        elif instruction in ['R', 'L']:
             direction = 1 if instruction == 'R' else -1
             heading = rotate(heading, direction)
         else:
@@ -49,5 +46,35 @@ def navigate(start_coordinates, start_heading, instructions=[]):
     return coordinates
 
 
+# file must have one instruction per line with no blank lines
+def get_instructions(filename):
+    with open(filename) as f:
+        while True:
+            instruction = f.readline().rstrip()
+            if not instruction:
+                return
+            yield instruction
+
+
+def parse_arguments(args):
+    if len(args) < 5:
+        raise ValueError("require 4 arguments: "
+                         "[initial x coordinate] "
+                         "[initial y coordinate] "
+                         "[initial heading] "
+                         "[instruction file name]")
+
+    return (int(args[1]), int(args[2])), int(args[3]), args[4]
+
+
 if __name__ == '__main__':
-    navigate((0, 0), 1, test_instructions)
+
+    supplied_coordinates, supplied_heading, supplied_instructions = parse_arguments(sys.argv)
+
+    instruction_generator = get_instructions('example_instructions.txt')
+
+    final_coordinates = navigate(supplied_coordinates, supplied_heading, instruction_generator)
+
+    print("distance travelled: ", distance_between(supplied_coordinates, final_coordinates))
+    if supplied_coordinates == final_coordinates:
+        print("travelled in a circle")  #TODO: is check again that this is the task
