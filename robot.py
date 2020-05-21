@@ -86,6 +86,7 @@ if __name__ == '__main__':
             print("travelled in a circle and terminated journey")
             print("ground covered:     ", ground_covered)
             exit(0)
+        previous = latest
 
     print("final position:     ", latest)
     print("distance travelled: ", '%.3f' % distance_between(supplied_coordinates, latest))
