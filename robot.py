@@ -17,10 +17,6 @@ def rotate(heading, direction):
     return (heading + direction) % 4
 
 
-def handle_unknown(instruction):
-    raise Exception('unknown instruction: ', instruction)
-
-
 def distance_between(coordinates_a, coordinates_b):
     a = abs(coordinates_a[0] - coordinates_b[0])
     b = abs(coordinates_a[1] - coordinates_b[1])
@@ -43,7 +39,9 @@ def navigate(start_coordinates, start_heading, instructions):
             heading = rotate(heading, direction)
 
         else:
-            handle_unknown(instruction)
+            raise Exception('unknown instruction: ', instruction)
+
+    return coordinates
 
 
 # file must have one instruction per line with no blank lines
