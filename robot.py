@@ -25,7 +25,6 @@ def distance_between(coordinates_a, coordinates_b):
     a = abs(coordinates_a[0] - coordinates_b[0])
     b = abs(coordinates_a[1] - coordinates_b[1])
 
-    print(a, b)
     return math.sqrt(a ** 2 + b ** 2)
 
 
@@ -37,13 +36,14 @@ def navigate(start_coordinates, start_heading, instructions):
     for instruction in instructions:
         if instruction == 'F':
             coordinates = move(coordinates, heading)
+            yield coordinates
+
         elif instruction in ['R', 'L']:
             direction = 1 if instruction == 'R' else -1
             heading = rotate(heading, direction)
+
         else:
             handle_unknown(instruction)
-
-    return coordinates
 
 
 # file must have one instruction per line with no blank lines
@@ -71,10 +71,12 @@ if __name__ == '__main__':
 
     supplied_coordinates, supplied_heading, supplied_instructions = parse_arguments(sys.argv)
 
-    instruction_generator = get_instructions('example_instructions.txt')
+    instruction_generator = get_instructions(supplied_instructions)
 
-    final_coordinates = navigate(supplied_coordinates, supplied_heading, instruction_generator)
+    generate_latest_coordinates = navigate(supplied_coordinates, supplied_heading, instruction_generator)
 
-    print("distance travelled: ", distance_between(supplied_coordinates, final_coordinates))
-    if supplied_coordinates == final_coordinates:
-        print("travelled in a circle")  #TODO: is check again that this is the task
+    for latest in generate_latest_coordinates:
+        if latest == supplied_coordinates:
+            print("travelled in a circle and terminated journey")
+            exit(0)
+    print("distance travelled: ", '%.3f' % distance_between(supplied_coordinates, latest))
